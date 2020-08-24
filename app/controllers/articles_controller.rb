@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  include ArticlesHelper
 
 	def index
 		@articles = Article.all
@@ -18,10 +19,10 @@ class ArticlesController < ApplicationController
 		redirect_to article_path(@article)
 	end
 
-
-	private
-
-	def article_params
-		params.require(:article).permit(:title, :body)
+	def destroy
+		@article = Article.find(params[:id])
+		@article.destroy
+		redirect_to articles_path
 	end
+	
 end
