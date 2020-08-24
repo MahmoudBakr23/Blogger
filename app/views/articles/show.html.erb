@@ -5,4 +5,9 @@
 <%= link_to "<< Back to Articles List", articles_path %>
 <br>
 <br>
-<%= link_to "Delete >>", article_path(@article), method: :delete  %>
+<%= link_to "edit", edit_article_path(@article) %>
+
+<br>
+<br>
+<%= link_to "Delete >>", article_path(@article), method: :delete , data: {confirm: "Really delete the article?"}
+ %>
