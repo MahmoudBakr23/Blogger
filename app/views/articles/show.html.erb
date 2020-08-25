@@ -5,7 +5,14 @@
     <%= link_to tag.name, tag_path(tag) %>
   <% end %>
 </p>
-<h4><%= @article.id %></h4>
+<h5><%= @article.id %></h5>
+
+<p>
+  <% if @article.image.exists? %>
+      <%= image_tag @article.image.url %><br/>
+  <% end %>
+</p>
+
 <p><%= @article.body %></p>
 <br>
 <h3>Comments (<%= @article.comments.size %>)</h3>
