@@ -2,12 +2,16 @@
 <h4><%= @article.id %></h4>
 <p><%= @article.body %></p>
 <br>
+<h3>Comments</h3>
+<%= render partial: 'comment', collection: @article.comments %>
+<br>
+<%= render partial: 'articles/comments/form' %>
+<br>
 <%= link_to "<< Back to Articles List", articles_path %>
 <br>
 <br>
-<%= link_to "edit", edit_article_path(@article) %>
+<%= link_to "<Edit>", edit_article_path(@article) %>
 
 <br>
 <br>
-<%= link_to "Delete >>", article_path(@article), method: :delete , data: {confirm: "Really delete the article?"}
- %>
+<%= link_to "Delete >>", article_path(@article), method: :delete , data: {confirm: "Really delete the article?"} %>
